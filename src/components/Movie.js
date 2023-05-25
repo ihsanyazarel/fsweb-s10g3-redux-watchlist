@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
 import { movies } from "./../movies";
 
 export default function Movie(props) {
-  const movie = movies[props.sira];
-
+  // const movie = movies[props.sira];
+  const movies = useSelector(store=> store.movies);
+  const sira = useSelector(store=>store.sira);
+  const movie = movies[sira];
+  
   return (
     <div className="flex bg-white shadow-lg items-start">
       <img src={movie.posterUrl} alt={movie.title} className="max-w-[18rem] w-2/5 block" />
